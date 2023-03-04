@@ -23,7 +23,9 @@ Widget counterView(BuildContext context, int value){
 
           FloatingActionButton(
             onPressed: (){
-              context.read<CounterBloc>().add(CounterDecress());
+              if(value != 0) {
+                context.read<CounterBloc>().add(CounterDecress());
+              }
             },
             child:const Icon(Icons.remove),
           ),
