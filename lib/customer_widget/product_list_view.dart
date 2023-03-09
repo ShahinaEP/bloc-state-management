@@ -5,6 +5,10 @@ import '../model/product_model.dart';
 Widget ProductListView(BuildContext context,   prouctList){
   List images =[];
   ProductsModel productsModel = prouctList;
+  imgValue(imgJson){
+    Map<String, dynamic> map = jsonDecode(imgJson) as Map<String, dynamic>;
+
+  }
 
   return SingleChildScrollView(
     child: Column(
@@ -17,7 +21,7 @@ Widget ProductListView(BuildContext context,   prouctList){
             itemBuilder: (context, itemIndex) {
               final data = jsonDecode(productsModel.offerProducts![itemIndex].image!);
               images.add(data);
-              // print(images);
+
               return Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child:Card(
@@ -27,7 +31,9 @@ Widget ProductListView(BuildContext context,   prouctList){
                           children: [
                             ListTile(
                               leading: CircleAvatar(
-                                backgroundImage:NetworkImage(images[itemIndex]['thumbnail'].toString()),
+                                backgroundImage:NetworkImage(jsonDecode(productsModel.offerProducts![itemIndex].image!)['thumbnail'].toString()
+                                    // images[itemIndex]['thumbnail'].toString()
+                                ),
                                 radius: 50.0,
                               ),
 
@@ -57,6 +63,8 @@ Widget ProductListView(BuildContext context,   prouctList){
 
                                   ]),
                             ),
+
+
                             SizedBox( height:23,),
                             SizedBox(
                               // height:200,
@@ -84,3 +92,21 @@ Widget ProductListView(BuildContext context,   prouctList){
 //     .replaceAll(new RegExp(r'\/'), r'\')
 //     .replaceAll(new RegExp(r'\\\\'), r'/')
 //     .split('"')[1]),
+
+// List.from(json.decode(str)).map((x) => Categorys.fromJson(Map.from(x)))).toList();
+//   ...json.decod(str).map((e) => productsModel.offerProducts![itemIndex].image!).fromJson(Map.from(e.toString())),
+//     Row(
+//   children: [
+//     Center(
+//       child: Text(e.toString()),
+//     ),
+//   ],
+// )
+// ),
+// ...jsonDecode(productsModel.offerProducts![itemIndex].image!).map((e)=> Center(
+//   child: Column(
+//     children: [
+//       Image.network( e['original'].toString())
+//     ],
+//   ),
+// )),
