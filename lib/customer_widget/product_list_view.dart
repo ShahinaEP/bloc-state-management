@@ -17,44 +17,59 @@ Widget ProductListView(BuildContext context,   prouctList){
             itemBuilder: (context, itemIndex) {
               final data = jsonDecode(productsModel.offerProducts![itemIndex].image!);
               images.add(data);
-              print(images);
+              // print(images);
               return Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage:NetworkImage(images[itemIndex]['thumbnail'].toString()),
-                        radius: 50.0,
-                      ),
-
-                      title: Text(
-                        "Name: ${productsModel.offerProducts![itemIndex].name}",
-                        style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 20),
-                      ),
-
-                      subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                child:Card(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                        child: Column(
                           children: [
-                            // Text(),
-                            Text(
-                              "Price:${productsModel.offerProducts![itemIndex].price}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17),
+                            ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:NetworkImage(images[itemIndex]['thumbnail'].toString()),
+                                radius: 50.0,
+                              ),
+
+                              title: Text(
+                                "Name: ${productsModel.offerProducts![itemIndex].name}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 20),
+                              ),
+
+                              subtitle: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // Text(),
+                                    Text(
+                                      "Price:${productsModel.offerProducts![itemIndex].price}",
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 17),
+                                    ),
+                                    Text(
+                                      "InStock: ${productsModel.offerProducts![itemIndex].inStock}",
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 17),
+                                    ),
+
+
+                                  ]),
                             ),
-                            Text(
-                              "InStock: ${productsModel.offerProducts![itemIndex].inStock}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17),
+                            SizedBox( height:23,),
+                            SizedBox(
+                              // height:200,
+                              child:Image.network( jsonDecode(productsModel.offerProducts![itemIndex].image!)['original'].toString())
+
                             ),
-                          ]),
+
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                ),
+
+
               );
             }),
       ],
