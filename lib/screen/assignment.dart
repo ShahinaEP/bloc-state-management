@@ -34,36 +34,4 @@ class Assignment extends StatelessWidget {
   }
 }
 
-// image.add(productsModel.offerProducts![itemIndex].image!
-//     .split("{\"thumbnail\":")[1]
-//     .split(",\"original\":")[0]
-//     .replaceAll(new RegExp(r'\/'), r'\')
-//     .replaceAll(new RegExp(r'\\\\'), r'/')
-//     .split('"')[1]);
-// image.add(productsModel.offerProducts![itemIndex].image!.split("{\"thumbnail\":")[1].split(",\"original\":")[0].replaceAll(new RegExp(r'\/'), r'\').replaceAll(new RegExp(r'\\\\'), r'/'));
-// print(image);
-
-// Image.network( productsModel.offerProducts![itemIndex].image!.trim().split("{\"thumbnail\":")[1].split(",\"original\":")[0].replaceAll(new RegExp(r'\/'), r'\').replaceAll(new RegExp(r'\\\\'), r'/').toString(),),
-// Container(
-// //   // decoration: BoxDecoration(
-// //   //   borderRadius: \
-// //   // ),
-// //   // constraints: BoxConstraints(minWidth: 50, minHeight: 50),split
-//     child: Image.network(
-//       // "https://grocery.ebasket.com.bd/api/storage/5861/conversions/25e-thumbnail.jpg",
-//       productsModel.offerProducts![itemIndex].image!.trim().split("{\"thumbnail\":")[1].split(",\"original\":")[0].replaceAll(new RegExp(r'\/'), r'\').replaceAll(new RegExp(r'\\\\'), r'/').toString(),
-//       // "https://grocery.ebasket.com.bd/api/storage/${productsModel.offerProducts![itemIndex].image!.split("storage\/")}",
-//       width: 50,
-//       height: 60,
-//     )),
-// Text(profileModel.data![itemIndex].id.toString(), style: const TextStyle(
-// fontWeight: FontWeight.w500,
-// fontSize: 25
-// ),),
-// Image.network(image[itemIndex]),
-// Image.network(
-//     productsModel.offerProducts![itemIndex].image!.trim().split("{\"thumbnail\":")[1].split(",\"original\":")[0].replaceAll(new RegExp(r'\/'), r'\').replaceAll(new RegExp(r'\\\\'), r'/').trim()),
-// backgroundImage: NetworkImage(image[itemIndex]),
-// backgroundImage:  NetworkImage(productsModel.offerProducts![itemIndex].image!.split("{\"thumbnail\":")[1].split(",\"original\":")[0].replaceAll(new RegExp(r'\/'), r'\').replaceAll(new RegExp(r'\\\\'), r'/')),
-
 
