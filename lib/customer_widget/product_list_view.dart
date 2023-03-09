@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../model/product_model.dart';
 Widget ProductListView(BuildContext context,   prouctList){
   // print(prouctList);
-  // ProductsModel productsModel = productList;
+  ProductsModel productsModel = prouctList;
   return SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +21,7 @@ Widget ProductListView(BuildContext context,   prouctList){
                     child: ListTile(
                       leading: CircleAvatar(
                         // backgroundColor: Colors.black87,
-                        backgroundImage: NetworkImage(prouctList.offerProducts![itemIndex].image!
+                        backgroundImage: NetworkImage(productsModel.offerProducts![itemIndex].image!
                             .split("{\"thumbnail\":")[1]
                             .split(",\"original\":")[0]
                             .replaceAll(new RegExp(r'\/'), r'\')
@@ -31,7 +31,7 @@ Widget ProductListView(BuildContext context,   prouctList){
                       ),
 
                       title: Text(
-                        "Name: ${prouctList.offerProducts![itemIndex].name}",
+                        "Name: ${productsModel.offerProducts![itemIndex].name}",
                         style: const TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 20),
                       ),
@@ -41,13 +41,13 @@ Widget ProductListView(BuildContext context,   prouctList){
                           children: [
 
                             Text(
-                              "Price:${prouctList.offerProducts![itemIndex].price}",
+                              "Price:${productsModel.offerProducts![itemIndex].price}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 17),
                             ),
                             Text(
-                              "InStock: ${prouctList.offerProducts![itemIndex].inStock}",
+                              "InStock: ${productsModel.offerProducts![itemIndex].inStock}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 17),
