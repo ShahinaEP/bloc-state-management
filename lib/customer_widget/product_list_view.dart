@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import '../model/product_model.dart';
 Widget ProductListView(BuildContext context,   prouctList){
-  // print(prouctList);
+  List images =[];
   ProductsModel productsModel = prouctList;
+
   return SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -12,7 +15,9 @@ Widget ProductListView(BuildContext context,   prouctList){
             shrinkWrap: true,
             itemCount: prouctList.offerProducts?.length,
             itemBuilder: (context, itemIndex) {
-
+              final data = jsonDecode(productsModel.offerProducts![itemIndex].image!);
+              images.add(data);
+              print(images);
               return Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Card(
@@ -20,13 +25,7 @@ Widget ProductListView(BuildContext context,   prouctList){
                     padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                     child: ListTile(
                       leading: CircleAvatar(
-                        // backgroundColor: Colors.black87,
-                        backgroundImage: NetworkImage(productsModel.offerProducts![itemIndex].image!
-                            .split("{\"thumbnail\":")[1]
-                            .split(",\"original\":")[0]
-                            .replaceAll(new RegExp(r'\/'), r'\')
-                            .replaceAll(new RegExp(r'\\\\'), r'/')
-                            .split('"')[1]),
+                        backgroundImage:NetworkImage(images[itemIndex]['thumbnail'].toString()),
                         radius: 50.0,
                       ),
 
@@ -39,7 +38,7 @@ Widget ProductListView(BuildContext context,   prouctList){
                       subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
+                            // Text(),
                             Text(
                               "Price:${productsModel.offerProducts![itemIndex].price}",
                               style: const TextStyle(
@@ -62,3 +61,11 @@ Widget ProductListView(BuildContext context,   prouctList){
     ),
   );
 }
+
+// backgroundColor: Colors.black87,
+// backgroundImage: NetworkImage(productsModel.offerProducts![itemIndex].image!
+//     .split("{\"thumbnail\":")[1]
+//     .split(",\"original\":")[0]
+//     .replaceAll(new RegExp(r'\/'), r'\')
+//     .replaceAll(new RegExp(r'\\\\'), r'/')
+//     .split('"')[1]),
