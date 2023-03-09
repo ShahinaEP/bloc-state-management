@@ -38,6 +38,8 @@ dependencies:
   equatable: ^2.0.5
   flutter_bloc: ^8.1.2
   http: ^0.13.5
+  social_media_audio_recorder: ^0.0.4
+  voice_message_package: ^0.0.74
 
 dev_dependencies:
   flutter_test:

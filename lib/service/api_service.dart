@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 
+import '../model/product_model.dart';
 import '../model/user_model.dart';
 
 class ApiService {
@@ -9,9 +10,19 @@ class ApiService {
 
     if (response.statusCode == 200) {
       var jsondata = response.body;
-      // print(jsondata);
-      // getProfile();
       return userModelFromJson(jsondata);
+    } else {
+      throw Exception("Something Went Wrong");
+    }
+  }
+
+  //ProductsModel
+  Future<ProductsModel> getProductsModel() async {
+    var response = await http.post(Uri.parse("https://grocery.ebasket.com.bd/api/offer-products"));
+
+    if (response.statusCode == 200) {
+      var jsondata = response.body;
+      return productsModelFromJson(jsondata);
     } else {
       throw Exception("Something Went Wrong");
     }
